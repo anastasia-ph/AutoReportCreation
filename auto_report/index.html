@@ -1,0 +1,690 @@
+<html lang="EN">
+<head>
+<meta charset="UTF-8">
+
+<title>UOR tool</title>
+<link rel="stylesheet" href="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/pemes/smoopness/jquery-ui.css">
+<link rel="stylesheet" href="src/css/bootstrap.min.css">
+<link rel="stylesheet" href="main.min.css">
+
+
+
+</head>	
+<body>
+  <div id="content" style="display: none;"></div>
+
+    <div class="wrapper" id="wrapper">
+        <h1>UOR report tool</h1>
+        <span>  
+            <form>
+          <input class="xray-data__input-button" type="file" id="submit-issues-file" /> <input type='button' id='load-file' value='Submit html file'>
+            </form>
+            <a href="howto.pdf" >How to export .html file form Jira</a> <span class="glyphicon glyphicon-question-sign"></span>
+        <div id="file-content" style="display: none;"></div>
+        
+        
+        </span> 
+<!-- TABLE PROJECT INFO -->
+        <div id="tableProjectInfo" class="table-editable rows-selectable table__project-info">
+ 
+            <div class="items__no-selection header__project-info">
+              <p>Report type</p>
+              <p>Project name</p>
+              <p>Milestone</p>
+              <p>Dashboard link</p>
+              <p>Report date</p>
+            </div>
+            <div class="data__project-info">
+              <p id="report-type-dropdown">-</p>
+              <p contenteditable="true" id="projectName">-</p>
+              <p contenteditable="true" id="projectMilestone">-</p>
+              <p contenteditable="true" id="dashboardLink">-</p>
+              <p contenteditable="true">-</p>        
+   
+            </tr>
+           
+            </table>
+          <div class="dropdown-menu hidden" id="dropdownMenuReportType">
+            <p class="dropdown__item items_report-type">Validation</p>
+            <p class="dropdown__item items_report-type">Status</p>
+          </div>
+        </div>
+<!-- TABLE BUILD INFO -->
+    
+      </div>
+      <div id="tableBuildInfo" class="table-editable rows-selectable table__build-info">
+        <span class="table-add glyphicon glyphicon-plus " name="buildInfo"></span>
+        <div class="table" id="buildInfoTable">
+          <div class="items__no-selection header__project-info">
+            <p >Platform</p>
+            <p >Compliance</p>
+            <p >Environment</p>
+            <p >Version</p>
+            <p></p>
+            <p></p>
+          </div>
+          <div class="data__project-info">
+            <p contenteditable="true">PC</p>
+            <p class="compliance-status_dropdown" contenteditable="true">Not Compliant</p>
+            <p class="data__environment-value" contenteditable="true">PROD</p>
+            <p class="data__build-value" contenteditable="true">Insert PC build version</p>        
+            <p class="glyphs__wrapper">
+              <span class="table-up glyphicon glyphicon-arrow-up"></span>
+              <span class="table-down glyphicon glyphicon-arrow-down"></span>
+              <span class="table-remove glyphicon glyphicon-remove"></span>
+            </p>
+
+        </div>
+   
+          <div class="data__project-info">
+            <p contenteditable="true">Stadia</p>
+            <p class="compliance-status_dropdown" contenteditable="true">Not Compliant</p>
+            <p class="data__environment-value" contenteditable="true">UAT</p>
+            <p class="data__build-value" contenteditable="true">-</p>        
+            <p  class="glyphs__wrapper">
+              <span class="table-up glyphicon glyphicon-arrow-up"></span>
+              <span class="table-down glyphicon glyphicon-arrow-down"></span>
+              <span class="table-remove glyphicon glyphicon-remove"></span>
+            </p>
+
+        </div >
+          <div class="data__project-info">
+            <p contenteditable="true">X1</p>
+            <p class="compliance-status_dropdown" contenteditable="true">Not Compliant</p>
+            <p class="data__environment-value" contenteditable="true">CERT</p>
+            <p class="data__build-value" contenteditable="true">-</p>        
+            <p  class="glyphs__wrapper">
+              <span class="table-up glyphicon glyphicon-arrow-up"></span>
+              <span class="table-down glyphicon glyphicon-arrow-down"></span>
+              <span class="table-remove glyphicon glyphicon-remove"></span>
+            </p>
+
+        </div>
+          <div class="data__project-info">  
+            <p contenteditable="true">X-series</p>
+            <p class="compliance-status_dropdown" contenteditable="true">Not Compliant</p>
+            <p class="data__environment-value" contenteditable="true">-</p>
+            <p class="data__build-value" contenteditable="true">-</p>        
+            <p  class="glyphs__wrapper">
+              <span class="table-up glyphicon glyphicon-arrow-up"></span>
+              <span class="table-down glyphicon glyphicon-arrow-down"></span>
+              <span class="table-remove glyphicon glyphicon-remove"></span>
+            </p>
+
+        </div>
+          <div class="data__project-info">
+            <p contenteditable="true">PS4</p>
+            <p class="compliance-status_dropdown" contenteditable="true">Compliant</p>
+            <p class="data__environment-value" contenteditable="true">-</p>
+            <p class="data__build-value" contenteditable="true">-</p>        
+            <p  class="glyphs__wrapper">
+              <span class="table-up glyphicon glyphicon-arrow-up"></span>
+              <span class="table-down glyphicon glyphicon-arrow-down"></span>
+              <span class="table-remove glyphicon glyphicon-remove"></span>
+            </p>
+
+        </div>
+          <div class="data__project-info">
+            <p contenteditable="true">PS5</p>
+            <p class="compliance-status_dropdown" contenteditable="true">Not Compliant</p>
+            <p class="data__environment-value" contenteditable="true">-</p>
+            <p class="data__build-value" contenteditable="true">-</p>        
+            <p  class="glyphs__wrapper">
+              <span class="table-up glyphicon glyphicon-arrow-up"></span>
+              <span class="table-down glyphicon glyphicon-arrow-down"></span>
+              <span class="table-remove glyphicon glyphicon-remove"></span>
+            </p>
+
+        </div>
+          <div class="data__project-info">
+            <p contenteditable="true">Switch</p>
+            <p class="compliance-status_dropdown" contenteditable="true">Not Compliant</p>
+            <p class="data__environment-value" contenteditable="true">-</p>
+            <p class="data__build-value" contenteditable="true">-</p>        
+            <p  class="glyphs__wrapper">
+              <span class="table-up glyphicon glyphicon-arrow-up"></span>
+              <span class="table-down glyphicon glyphicon-arrow-down"></span>
+              <span class="table-remove glyphicon glyphicon-remove"></span>
+
+            </p>
+
+        </div>
+          <!-- pis is our clonable table line -->
+          <div class="hide data__project-info" id="hiddenRow">
+            <p contenteditable="true">Specify platform</p>
+            <p contenteditable="true">Specify status</p>
+            <p contenteditable="true">Specify env.</p>
+            <p contenteditable="true">Specify build version</p>
+            <p   class="glyphs__wrapper">
+              <span class="table-up glyphicon glyphicon-arrow-up"></span>
+              <span class="table-down glyphicon glyphicon-arrow-down"></span>
+            </p>
+            <p   class="glyphs__wrapper">
+              <span class="table-remove glyphicon glyphicon-remove"></span>
+            </p>
+    
+        </div>
+
+        <div class="hide data__project-info" id="hiddenRowIssue">
+          <a href="" contenteditable="true">Issue ID</a>
+          <p contenteditable="true">Specify summary</p>
+          <p contenteditable="true">Specify status</p>
+          <p contenteditable="true">Specify platform</p>
+          <p contenteditable="true">Specify assignee</p>
+          <p   class="glyphs__wrapper">
+            <span class="table-up glyphicon glyphicon-arrow-up"></span>
+            <span class="table-down glyphicon glyphicon-arrow-down"></span>
+          </p>
+          <p   class="glyphs__wrapper">
+            <span class="table-remove glyphicon glyphicon-remove"></span>
+          </p>
+  
+      </div>
+    </div>
+      </div>
+        <!-- Major Offenders list -->
+  <p class="section__header items__no-selection">Major Offenders:</p>
+  <p class="items__no-selection"><strong>Below we have listed pe issues wip pe highest impact. Please add up to five issues.</strong></p>
+    <div id="tableMajorOffender" class="table-editable rows-selectable">
+      <span class="table-add glyphicon glyphicon-plus selection" name="majorOffender"></span>
+      <div class="table" name="majorOffender" id="majorOffenderTable">
+        <div class="items__no-selection header__project-info items__major-offenders">
+          <p>Bug ID</p>
+          <p>Summary</p>
+          <p>Status</p>
+          <p>Platform</p>
+          <p>Assignee</p>
+          <p></p>
+          <p></p>
+        </div>
+  
+ 
+        <!-- pis is our clonable table line -->
+        <div class="hide">
+          <p contenteditable="true">-</p>
+          <p contenteditable="true">-</p>
+          <p contenteditable="true">-</p>
+          <p contenteditable="true">-</p>
+          <p contenteditable="true">-</p>
+          <p  class="glyphs__wrapper">
+            <span class="table-up glyphicon glyphicon-arrow-up"></span>
+            <span class="table-down glyphicon glyphicon-arrow-down"></span>
+          </p>
+          <p class="glyphs__wrapper">
+            <span class="table-remove glyphicon glyphicon-remove"></span>
+          </p>
+  
+        </div>
+      </div>
+    </div>
+
+    <h2 class="section__header items__no-selection">Important Notes:</h2>
+      <div id="tableImportantNotes" class="table-editable rows-selectable">
+          <span class="table-add glyphicon glyphicon-plus" name="importantNotes"></span>
+          <div class="table" id="importantNotesTable" name="importantNotes">
+            <div class="items__no-selection header__project-info">
+              <p>Platform</p>
+              <p>Note</p>
+              <p></p>
+              <p></p>
+            </div>
+            <div class="data__important-notes">
+              <p  contenteditable="true">All Platforms</p>
+              <p class="data__platform-note" contenteditable="true">Ubisoft Connect Challenges; Please note pat some Core Challenges & Time-Limited challenges require extensive playprough testing and is handled by functionality team</p>
+              <p class="glyphs__wrapper">
+                <span class="table-up glyphicon glyphicon-arrow-up"></span>
+                <span class="table-down glyphicon glyphicon-arrow-down"></span>
+                <span class="table-remove glyphicon glyphicon-remove"></span>
+              </p>
+
+            </div>
+           <div class="data__important-notes">
+              <p contenteditable="true">PC</p>
+              <p class="data__platform-note" contenteditable="true">No important notes specific to platform</p>
+              <p class="glyphs__wrapper">
+                <span class="table-up glyphicon glyphicon-arrow-up"></span>
+                <span class="table-down glyphicon glyphicon-arrow-down"></span>
+                <span class="table-remove glyphicon glyphicon-remove"></span>
+              </p>
+           </div>
+            <div class="data__important-notes">
+              <p contenteditable="true">Stadia</p>
+              <p class="data__platform-note" contenteditable="true">No important notes specific to platform</p>
+              <div class="glyphs__wrapper">
+                <span class="table-up glyphicon glyphicon-arrow-up"></span>
+                <span class="table-down glyphicon glyphicon-arrow-down"></span>
+                <span class="table-remove glyphicon glyphicon-remove"></span>
+              </div>
+            </div>
+            <div class="data__important-notes">
+              <p  contenteditable="true">X1</p>
+              <p class="data__platform-note" contenteditable="true">No important notes specific to platform</p>
+              <div class="glyphs__wrapper">
+                <span class="table-up glyphicon glyphicon-arrow-up"></span>
+                <span class="table-down glyphicon glyphicon-arrow-down"></span>
+                <span class="table-remove glyphicon glyphicon-remove"></span>
+              </div>
+            </div>
+            <div class="data__important-notes">
+              <p  contenteditable="true">X-series</p>
+              <p class="data__platform-note" contenteditable="true">No important notes specific to platform</p>
+              <div class="glyphs__wrapper">
+                <span class="table-up glyphicon glyphicon-arrow-up"></span>
+                <span class="table-down glyphicon glyphicon-arrow-down"></span>
+                <span class="table-remove glyphicon glyphicon-remove"></span>
+              </div>
+            </div>
+            <div class="data__important-notes">
+              <p  contenteditable="true">PS4</p>
+              <p class="data__platform-note" contenteditable="true">No important notes specific to platform</p>
+              <div class="glyphs__wrapper">
+                <span class="table-up glyphicon glyphicon-arrow-up"></span>
+                <span class="table-down glyphicon glyphicon-arrow-down"></span>
+                <span class="table-remove glyphicon glyphicon-remove"></span>
+              </div>
+              </div>
+            <div class="data__important-notes">
+              <p  contenteditable="true">PS5</p>
+              <p class="data__platform-note" contenteditable="true">No important notes specific to platform</p>
+              <div class="glyphs__wrapper">
+                <span class="table-up glyphicon glyphicon-arrow-up"></span>
+                <span class="table-down glyphicon glyphicon-arrow-down"></span>
+                <span class="table-remove glyphicon glyphicon-remove"></span>
+              </div>
+            </div>
+            <div class="data__important-notes">
+              <p contenteditable="true">Switch</p>
+              <p class="data__platform-note" contenteditable="true">No important notes specific to platform</p>
+              <div class="glyphs__wrapper">
+                <span class="table-up glyphicon glyphicon-arrow-up"></span>
+                <span class="table-down glyphicon glyphicon-arrow-down"></span>
+                <span class="table-remove glyphicon glyphicon-remove"></span>
+              </div>
+            </div>
+           
+            <!-- pis is our clonable table line -->
+            <div class="hide">
+              <p contenteditable="true">-</p>
+              <p class="data__platform-note" contenteditable="true">-</p>
+              <div class="glyphs__wrapper">
+                <span class="table-up glyphicon glyphicon-arrow-up"></span>
+                <span class="table-down glyphicon glyphicon-arrow-down"></span>
+                <span class="table-remove glyphicon glyphicon-remove"></span>
+              </div>
+            </div>
+            </div>
+        </div>
+            <!-- UOR report in details -->
+    
+    
+    <div id="tableReportDetails" class="table-editable rows-selectable">
+      <div class="table" name="reportDetails" id="reportDetailsTable">
+        <div class="items__no-selection header__project-info data__detailed-report data_percentage">
+          <p>UOR Category</p>
+          <div id="pccolumn" class="data_percentage__button-container">
+            <label for="filepc" class="label-text_hower">PC</label>
+            <input id="filepc" class="xray-data__input-button" type="file" style="visibility: hidden; width:0px; height:0px">
+            <div class="na-button">
+              <input type="checkbox" id="naPC" name="naPC" />
+              <label for="naPC">N/A</label>
+            </div>
+          </div>
+          <div id="x1column" class="data_percentage__button-container">
+            <label for="filex1" class="label-text_hower">X1</label>
+            <input id="filex1" class="xray-data__input-button" type="file" style="visibility: hidden; width:0px; height:0px">
+            <div class="na-button">
+              <input type="checkbox" id="naX1" name="naX1" />
+              <label for="naX1">N/A</label>
+            </div>
+          </div>
+
+          <div id="xsxcolumn" class="data_percentage__button-container">
+          
+            <label for="filexsx" class="label-text_hower">Xsx</label>
+            <input id="filexsx" class="xray-data__input-button" type="file" style="visibility: hidden; width:0px; height:0px">
+            <div class="na-button">
+              <input type="checkbox" id="naXsx" name="naXsx" />
+              <label for="naXsx">N/A</label>
+            </div>
+          </div>
+          <div id="ps4column" class="data_percentage__button-container">
+            <label for="fileps4" class="label-text_hower">PS4</label>
+            <input id="fileps4" class="xray-data__input-button" type="file" style="visibility: hidden; width:0px; height:0px">
+            <div class="na-button">
+              <input type="checkbox" id="naPs4" name="naPs4" />
+              <label for="naPs4">N/A</label>
+            </div>
+          </div>
+          <div id="ps5column" class="data_percentage__button-container">
+
+            <label for="fileps5" class="label-text_hower">PS5</label>
+            <input id="fileps5" class="xray-data__input-button" type="file" style="visibility: hidden; width:0px; height:0px">
+            <div class="na-button">
+              <input type="checkbox" id="naPs5" name="naPs5" />
+              <label for="naPs5">N/A</label>
+            </div>
+          </div>
+          <div id="nxcolumn" class="data_percentage__button-container">
+
+            <label for="filenx" class="label-text_hower">NX</label>
+            <input id="filenx" class="xray-data__input-button" type="file" style="visibility: hidden; width:0px; height:0px">
+
+            <div class="na-button">
+              <input type="checkbox" id="naNx" name="naNx" />
+              <label for="naNx">N/A</label>
+            </div>
+          </div>
+        </div>
+        <div class="data__detailed-report">
+          <p contenteditable="true">Ubisoft Authentication</p>
+          <p contenteditable="true">-</p>
+          <p contenteditable="true">-</p> 
+          <p contenteditable="true">-</p>       
+          <p contenteditable="true">-</p>  
+          <p contenteditable="true">-</p>    
+          <p contenteditable="true">-</p>                       
+        </div>
+       <div class="data__detailed-report">
+          <p contenteditable="true">Ubiservices</p>
+          <p contenteditable="true">-</p>
+          <p contenteditable="true">-</p> 
+          <p contenteditable="true">-</p>
+          <p contenteditable="true">-</p>
+          <p contenteditable="true">-</p>   
+          <p contenteditable="true">-</p>             
+          </div>
+        <div class="data__detailed-report">
+          <p contenteditable="true">In-Game Communication Channels</p>
+          <p contenteditable="true">-</p>
+          <p contenteditable="true">-</p> 
+          <p contenteditable="true">-</p>
+          <p contenteditable="true">-</p>
+          <p contenteditable="true">-</p>   
+          <p contenteditable="true">-</p>                     
+        </div>
+        <div class="data__detailed-report">
+          <p contenteditable="true">Telemetry</p>
+          <p contenteditable="true">-</p>
+          <p contenteditable="true">-</p> 
+          <p contenteditable="true">-</p>
+          <p contenteditable="true">-</p>
+          <p contenteditable="true">-</p>   
+          <p contenteditable="true">-</p>                 
+        </div>
+        <div class="data__detailed-report">
+          <p contenteditable="true">Content Unlocks</p>
+          <p contenteditable="true">-</p>
+          <p contenteditable="true">-</p> 
+          <p contenteditable="true">-</p>
+          <p contenteditable="true">-</p>
+          <p contenteditable="true">-</p>   
+          <p contenteditable="true">-</p>                 
+        </div>
+        <div class="data__detailed-report">
+          <p contenteditable="true">Service Failure Messages</p>
+          <p contenteditable="true">-</p>
+          <p contenteditable="true">-</p> 
+          <p contenteditable="true">-</p>
+          <p contenteditable="true">-</p>
+          <p contenteditable="true">-</p>   
+          <p contenteditable="true">-</p>                  
+        </div>
+        <div class="data__detailed-report">
+          <p contenteditable="true">Out of Game User Experience</p>
+          <p contenteditable="true">-</p>
+          <p contenteditable="true">-</p>
+          <p contenteditable="true">-</p>
+          <p contenteditable="true">-</p>
+          <p contenteditable="true">-</p>   
+          <p contenteditable="true">-</p>                      
+        </div>
+        <div class="data__detailed-report">
+          <p contenteditable="true">Networking</p>
+          <p contenteditable="true">-</p>
+          <p contenteditable="true">-</p> 
+          <p contenteditable="true">-</p>
+          <p contenteditable="true">-</p>
+          <p contenteditable="true">-</p>   
+          <p contenteditable="true">-</p>                    
+        </div>
+        <div class="data__detailed-report">
+          <p contenteditable="true">Ubisoft Connect PC</p>
+          <p contenteditable="true">-</p>
+          <p contenteditable="true">-</p> 
+          <p contenteditable="true">-</p>
+          <p contenteditable="true">-</p>
+          <p contenteditable="true">-</p>   
+          <p contenteditable="true">-</p>                 
+        </div>
+        <div class="data__detailed-report">
+          <p contenteditable="true">Ubiservices Stats</p>
+          <p contenteditable="true">-</p>
+          <p contenteditable="true">-</p> 
+          <p contenteditable="true">-</p>
+          <p contenteditable="true">-</p>
+          <p contenteditable="true">-</p>   
+          <p contenteditable="true">-</p>                 
+        </div>
+        <div class="data__detailed-report">
+          <p contenteditable="true">PC Monetization</p>
+          <p contenteditable="true">-</p>
+          <p contenteditable="true">-</p>
+          <p contenteditable="true">-</p>
+          <p contenteditable="true">-</p>
+          <p contenteditable="true">-</p>   
+          <p contenteditable="true">-</p>                  
+        </div>
+        <div class="data__detailed-report">
+          <p contenteditable="true">Cross-Play & Cross-Progression</p>
+          <p contenteditable="true">-</p>
+          <p contenteditable="true">-</p> 
+          <p contenteditable="true">-</p>
+          <p contenteditable="true">-</p>
+          <p contenteditable="true">-</p>   
+          <p contenteditable="true">-</p>                  
+        </div>
+        <div class="data__detailed-report">
+          <p contenteditable="true">Reputation & Sanctions</p>
+          <p contenteditable="true">-</p>
+          <p contenteditable="true">-</p>
+          <p contenteditable="true">-</p> 
+          <p contenteditable="true">-</p>
+          <p contenteditable="true">-</p>   
+          <p contenteditable="true">-</p>                   
+        </div>
+        <div class="data__detailed-report">
+          <p contenteditable="true">Security Risk Management</p>
+          <p contenteditable="true">-</p>
+          <p contenteditable="true">-</p>
+          <p contenteditable="true">-</p>
+          <p contenteditable="true">-</p>
+          <p contenteditable="true">-</p>   
+          <p contenteditable="true">-</p>                     
+        </div>
+        <div class="data__detailed-report">
+          <p contenteditable="true">Dedicated Servers / Vanguard</p>
+          <p contenteditable="true">-</p>
+          <p contenteditable="true">-</p> 
+          <p contenteditable="true">-</p>
+          <p contenteditable="true">-</p>
+          <p contenteditable="true">-</p>   
+          <p contenteditable="true">-</p>                   
+        </div>
+        <div class="data__detailed-report">
+          <p contenteditable="true">Monetization / Live Operations</p>
+          <p contenteditable="true">-</p>
+          <p contenteditable="true">-</p>
+          <p contenteditable="true">-</p>
+          <p contenteditable="true">-</p>
+          <p contenteditable="true">-</p>   
+          <p contenteditable="true">-</p>                  
+        </div>
+        <div class="data__detailed-report">
+          <p contenteditable="true">Ubisoft Connect</p>
+          <p contenteditable="true">-</p>
+          <p contenteditable="true">-</p> 
+          <p contenteditable="true">-</p>
+          <p contenteditable="true">-</p>
+          <p contenteditable="true">-</p>   
+          <p contenteditable="true">-</p>                    
+        </div>
+       <div class="data__detailed-report">
+          <p contenteditable="true" style="font-weight: bold">Total</p>
+          <p contenteditable="true" style="font-weight: bold">0</span>
+          <p contenteditable="true" style="font-weight: bold">0</span>
+          <p contenteditable="true" style="font-weight: bold">0</span>       
+          <p contenteditable="true" style="font-weight: bold">0</p>  
+          <p contenteditable="true" style="font-weight: bold">0</span>    
+          <p contenteditable="true" style="font-weight: bold">0</span>               
+        </div>     
+      </div>
+    </div>
+      
+    
+    <p align="center"><button id="exp" class="btn btn-primary">Generate UOR Report</button></p>
+    <!-- <input id="inputX" class="xray-data__input-button" type="file"> -->
+    <p id="export" style="display: none;"></p>
+  <p style="height: 50px"></p>
+  
+  <div id="loadTemplate"></div>
+  
+  <div id="UORreport"></div>
+
+    </div>  
+  
+  
+  
+  </div>
+      <script>
+        //Script to import data from Jira html file to this tool 
+        ( function ( $ ) {
+      // Add click event handler to button
+      $( '#load-file' ).click( function () {
+        if ( ! window.FileReader ) {
+          return alert( 'FileReader API is not supported by your browser.' );
+        }
+        var $i = $( '#file' ), 
+          input = $i[0]; // Getting the element from jQuery
+        if ( input.files && input.files[0] ) {
+          file = input.files[0]; // The file
+          fr = new FileReader(); // FileReader instance
+          fr.onload = function () {
+            // Do stuff on onload, use fr.result for contents of file
+            $( '#file-content' ).append( $( '<div/>' ).html( fr.result ) )
+          };
+          fr.readAsText( file );
+          //fr.readAsDataURL( file );
+        } else {
+          // Handle errors here
+          alert( "File not selected or browser incompatible." )
+        }
+      //Jira html file is now loaded out of screen (added wait 1 sec to be sure) as part of our page and we can convert "issuetable" table to array. 
+       setTimeout(function(){
+    
+    // A few jQuery helpers for exporting only
+    jQuery.fn.pop = [].pop;
+    jQuery.fn.shift = [].shift;
+    
+    //converting table to array
+    var $ISSUETABLE = $('#issuetable');
+    var $EXPORT = $('#export');
+    
+      var $rows = $ISSUETABLE.find('tr');
+    
+      var headers = [];
+      var data = [];
+    
+      // Get the headers 
+      $($rows.shift()).find('th:not(:empty)').each(function () {
+        //as "Platform" field is not named in same rule on different project we search for "latform" text in header and rename this header to platform
+        if ($(this).text().includes("latform"))
+        {
+        headers.push("platform");  
+        }
+        else
+        {
+          //also trim spaces and remove \r\n\t chars
+        headers.push($(this).text().toLowerCase().replace(/[\r\n\t]/g, "").trim());
+        }
+      });
+    
+      // Turn all existing rows into a loopable array
+      $rows.each(function () {
+        var $td = $(this).find('td');
+        var h = {};
+    
+        // Use the headers from earlier to name our hash keys
+        headers.forEach(function (header, i) {
+          //also trim spaces and remove \r\n\t chars
+          h[header] = $td.eq(i).text().replace(/[\r\n\t]/g, "").trim();
+        });
+    
+        data.push(h);
+      });
+    
+      // Output the result
+      $EXPORT.text(JSON.stringify(data));
+    //import numberOfIssues from html file to table
+    numberOfIssues = data.length;
+    //import projectName from html file to table
+     $('#projectName').html((data[0]["key"]).split('-')[0]);
+    
+    
+    //for (let q = 0; q < data.length; q++){
+    //        console.log(data[q]["labels"]);
+    //        console.log(data[q]["platform"]);
+    
+    //        console.log(data[q]["key"]);
+    //        console.log(data[q]["assignee"]);
+    //        console.log(data[q]["status"]);
+    //        console.log(data[q]["summary"]);
+    //        console.log(data[q]["platform"]);
+    //											}
+    
+    
+    //import majorOffenders from html file to table in the tool to make data editable
+    var tbody = $('#majorOffender tbody'),
+        props = ["key", "summary", "status", "platform", "assignee"];
+    $.each(data, function(i, bug) {
+      var tr = $('<tr>');
+      $.each(props, function(i, prop) {
+        $('<td contenteditable="true">').html(bug[prop]).appendTo(tr);  
+      });
+        tr.append('<td><span class="table-up glyphicon glyphicon-arrow-up"></span><span class="table-down glyphicon glyphicon-arrow-down"></span>');
+      tr.append('<td><span class="table-remove glyphicon glyphicon-remove"></span>');
+      tbody.append(tr);
+      
+    });
+    
+      },1000); 
+      
+      } );
+    } )( jQuery );
+      </script>
+  
+        <script src="https://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.6.0/underscore.js"></script>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/PapaParse/5.0.0/papaparse.min.js" integrity="sha512-xddIAlD2+EH5r9YAs6ECKzsN0sICQ96kGSUSm+wdpqXNpDMFrcRRsz7g65WTxOvb5XTl09K135l0Gk0fY62PaA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.0.0/papaparse.js" integrity="sha512-MuDepabAXaVVM/50AMSN5xkWbSfPvJu9ubgkAmZcVgO3AN3x/iO4zAgTGuz8F8Slzs4cw66O37QszkBwUIjvhg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="src/js/scripts.js"></script>
+    <script src="src/js/report-type-dropdown.js"></script>
+    <script src="src/js/remove-empty-values-on-edit.js"></script>
+    <script src="src/js/process-issues-from-jira.js"></script>
+    <script src="src/js/on-hover.js"></script>
+    <script src="src/js/process-csv-results.js"></script>
+    <script src="src/js/generate-report-function.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js"></script>
+<script>
+  window.console = window.console || function(t) {};
+</script>
+<script>
+  if (document.location.search.match(/type=embed/gi)) {
+    window.parent.postMessage("resize", "*");
+  }
+</script>
+
+
+  
+    </body>
+</html>

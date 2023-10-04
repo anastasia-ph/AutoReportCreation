@@ -1,0 +1,53 @@
+    [
+        {
+            "1": "Ubisoft Authentication"
+        },
+        {
+            "2": "Ubiservices"
+        },
+        {
+            "3": "In-Game Communication Channels"
+        },
+        {
+            "4": "Telemetry"
+        },
+        {
+            "5": "Content Unlocks"
+        },
+        {
+            "6": "Service Failure Messages"
+        },
+        {
+            "7": "Out of Game User Experience"
+        },
+        {
+            "8": "Networking"
+        },
+        {
+            "9": "Ubisoft Connect PC"
+        },
+        {
+            "10": "Ubiservices Stats"
+        },
+        {
+            "11": "PC Monetization"
+        },
+        {
+            "12": "Cross-Play & Cross-Progression"
+        },
+        {
+            "13": "Reputation & Sanctions"
+        },
+        {
+            "14": "Security Risk Management"
+        },
+        {
+            "16": "Dedicated Servers / Vanguard"
+        },
+        {
+            "17": "Monetization / Live Operations"
+        },
+        {
+            "18": "Ubisoft Connect"
+        }
+    ]

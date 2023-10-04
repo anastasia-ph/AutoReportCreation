@@ -1,0 +1,230 @@
+.wrapper {
+  width: 100%;
+  height: 100vh;
+  padding: 10px 20px;
+}
+
+.table__project-info {
+  width: 100%;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-rows: 50% 50%;
+      grid-template-rows: 50% 50%;
+}
+
+.table__build-info {
+  width: 100%;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-rows: (10%)[6];
+      grid-template-rows: repeat(6, 10%);
+}
+
+.rows-selectable:hover {
+  cursor: pointer;
+}
+
+.items__no-selection:hover {
+  cursor: default;
+}
+
+.glyphs__wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 65px;
+}
+
+.glyphs__wrapper > span {
+  padding: 0 2px 0 2px;
+}
+
+.table-editable {
+  position: relative;
+}
+
+.table-editable .glyphicon {
+  font-size: 20px;
+}
+
+.table-remove {
+  color: #700;
+  cursor: pointer;
+}
+
+.table-remove:hover {
+  color: #f00;
+}
+
+.table-up,
+.table-down {
+  color: #007;
+  cursor: pointer;
+}
+
+.table-up:hover,
+.table-down:hover {
+  color: #00f;
+}
+
+.table-add {
+  color: #070;
+  cursor: pointer;
+  position: absolute;
+  top: 8px;
+  right: 0;
+}
+
+.table-add:hover {
+  color: #0b0;
+}
+
+.section__header {
+  font-size: 30px;
+}
+
+.dropdown-menu {
+  position: absolute;
+  background-color: white;
+  font-size: 20px;
+  margin-top: 10px;
+  -webkit-box-shadow: 2px 5px 10px #787878;
+          box-shadow: 2px 5px 10px #787878;
+  display: block;
+  z-index: 2;
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+  height: -webkit-max-content;
+  height: -moz-max-content;
+  height: max-content;
+}
+
+.hidden {
+  display: none;
+}
+
+.dropdown__item {
+  padding: 10px 10px 10px 10px;
+}
+
+.dropdown__item:hover {
+  background-color: #787878;
+}
+
+.data__important-notes {
+  width: 100%;
+  position: relative;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (33%)[3];
+      grid-template-columns: repeat(3, 33%);
+  -webkit-column-gap: 10px;
+          column-gap: 10px;
+}
+
+.apply-button {
+  position: absolute;
+  padding: 0 0 0 2px;
+  font-size: 14px;
+  color: white;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  border-radius: 5px;
+  width: 80px;
+  height: 20px;
+  background-color: darkolivegreen;
+}
+
+.apply-button_margin-compliance {
+  right: auto;
+  margin: 20px 0 0 295px;
+}
+
+.apply-button_margin-env {
+  right: auto;
+  margin: 20px 0 0 590px;
+}
+
+.apply-button__margin-build {
+  right: 0;
+  margin: 20px 512px 0 0;
+}
+
+.apply-button__margin-platform {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  margin: 50px 500px -10px 0px;
+}
+
+.data_percentage__button-container {
+  position: relative;
+}
+
+.apply-button__detailed_report {
+  position: absolute;
+  right: 0;
+  top: 0;
+  margin: 2px 28px 0px 0px;
+}
+
+.label__text_hower:hover {
+  -webkit-transform: scale(1);
+          transform: scale(1);
+}
+
+.header__project-info {
+  width: 100%;
+  font-size: 19px;
+  font-weight: 600;
+  background-color: #bbb8b2;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (20%)[5];
+      grid-template-columns: repeat(5, 20%);
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.header__project-info > p {
+  margin: 0 0;
+}
+
+.data__project-info {
+  width: 100%;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (20%)[5];
+      grid-template-columns: repeat(5, 20%);
+}
+
+.data__important-notes {
+  width: 100%;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (33%)[3];
+      grid-template-columns: repeat(3, 33%);
+  -webkit-column-gap: 10px;
+          column-gap: 10px;
+}
+
+.data__detailed-report {
+  width: 100%;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 20% (11.5%)[7];
+      grid-template-columns: 20% repeat(7, 11.5%);
+}
